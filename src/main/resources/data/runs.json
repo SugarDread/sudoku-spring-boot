@@ -1,0 +1,38 @@
+{
+  "runs": [
+    {
+      "id": 1,
+      "title": "First",
+      "started": "2025-09-09T17:00:00",
+      "completed": "2025-09-09T19:00:00",
+      "miles": 6,
+      "location": "INDOORS"
+    },
+    {
+      "id": 2,
+      "title": "Second",
+      "started": "2025-09-19T23:36:10.956229",
+      "completed": "2025-09-20T00:36:10.956229",
+      "miles": 12,
+      "location": "OUTDOORS"
+    },
+    {
+      "id": 3,
+      "title": "Third",
+      "started": "2025-09-19T23:36:10.956229",
+      "completed": "2025-10-20T12:36:10.956229",
+      "miles": 100,
+      "location": "INDOORS"
+    },
+    {
+      "id": 4,
+      "title": "Fourth",
+      "started": "2025-09-19T23:36:10.956229",
+      "completed": "2025-09-30T22:36:10.956229",
+      "miles": 66,
+      "location": "OUTDOORS"
+    }
+  ]
+}
+
+

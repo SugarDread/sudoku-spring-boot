@@ -1,0 +1,10 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=sudoku'
+      - 'POSTGRES_PASSWORD=1234'
+      - 'POSTGRES_USER=user'
+    ports:
+      - '5432:5432'
+
