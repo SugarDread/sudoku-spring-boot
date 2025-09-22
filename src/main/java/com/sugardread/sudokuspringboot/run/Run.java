@@ -2,10 +2,12 @@ package com.sugardread.sudokuspringboot.run;
 
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Positive;
+import org.springframework.data.annotation.Id;
 
 import java.time.LocalDateTime;
 
 public record Run(
+        @Id
         Integer id,
         @NotEmpty
         String title,
@@ -13,7 +15,8 @@ public record Run(
         LocalDateTime completed,
         @Positive
         Integer miles,
-        Location location
+        Location location,
+        Integer version
 ) {
 
     public Run {
