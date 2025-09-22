@@ -2,6 +2,8 @@ package com.sugardread.sudokuspringboot;
 
 import com.sugardread.sudokuspringboot.run.Location;
 import com.sugardread.sudokuspringboot.run.Run;
+import com.sugardread.sudokuspringboot.user.User;
+import com.sugardread.sudokuspringboot.user.UserRestClient;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -11,6 +13,7 @@ import org.springframework.context.annotation.Bean;
 
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @SpringBootApplication
 public class SudokuSpringBootApplication {
@@ -20,15 +23,19 @@ public class SudokuSpringBootApplication {
         SpringApplication.run(SudokuSpringBootApplication.class, args);
     }
 
-/*
+
     @Bean
-    CommandLineRunner runner() {
+    CommandLineRunner runner(UserRestClient client) {
         return args -> {
-            Run run = new Run(1, "First", LocalDateTime.now(), LocalDateTime.now().plusHours(1), 10, Location.OUTDOORS);
-            log.info("Run: " + run);
+            List<User> users = client.findAll();
+            log.info(users.toString());
+
+            User user = client.findById(1);
+            log.info(user.toString());
+
         };
     }
-*/
+
 
 
 }
