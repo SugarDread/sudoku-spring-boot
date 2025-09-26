@@ -25,22 +25,22 @@ public class JdbcClientRunRepository {
     }
 
     public Optional<Run> findById(Integer id) {
-        return jdbcClient.sql("select id,title,started,completed,miles,location from run where id = :id")
+        return jdbcClient.sql("select id,title,started,completed,miles,location,version from run where id = :id")
                 .param("id", id)
                 .query(Run.class)
                 .optional();
     }
 
     public void create(Run run) {
-        jdbcClient.sql("INSERT INTO RUN(id, title, started, completed, miles, location) VALUES (?,?,?,?,?,?)")
-                .params(List.of(run.id(), run.title(), run.started(), run.completed(), run.miles(), run.location().toString()))
+        jdbcClient.sql("INSERT INTO RUN(id, title, started, completed, miles, location, version) VALUES (?,?,?,?,?,?,?)")
+                .params(List.of(run.id(), run.title(), run.started(), run.completed(), run.miles(), run.location().toString(), run.version()))
                 .update();
     }
 
 
     void update(Run run, Integer id) {
-        jdbcClient.sql("update run set title = ?, started = ?, completed = ?, miles = ?, location = ? where id = ?")
-                .params(List.of(run.title(), run.started(), run.completed(), run.miles(), run.location().toString(), id))
+        jdbcClient.sql("update run set title = ?, started = ?, completed = ?, miles = ?, location = ?, version = ? where id = ?")
+                .params(List.of(run.title(), run.started(), run.completed(), run.miles(), run.location().toString(), run.version(), id))
                 .update();
     }
 
